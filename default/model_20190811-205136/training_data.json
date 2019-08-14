@@ -1,0 +1,1105 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "AAPL, please"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "About AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "i am looking for a stock called AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "information of AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "know about AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 15,
+            "end": 19,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "somthing about AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "what about AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "SINA, please"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "About SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "i am looking for a stock called SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "information of SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "know about SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 15,
+            "end": 19,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "somthing about SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "what about SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "SOHU, please"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "About SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "i am looking for a stock called SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "information of SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "know about SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 15,
+            "end": 19,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "somthing about SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "SOHU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "what about SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "BIDU, please"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "About BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "i am looking for a stock called BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "information of BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "know about BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 15,
+            "end": 19,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "somthing about BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "what about BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "CTRP, please"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "About CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "i am looking for a stock called CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "information of CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "know about CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 15,
+            "end": 19,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "somthing about CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "what about CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "CTRP, please"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 6,
+            "end": 10,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "About CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "i am looking for a stock called CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 32,
+            "end": 36,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "information of CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "know about CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 15,
+            "end": 19,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "somthing about CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 11,
+            "end": 15,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "what about CTRP"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "deny",
+        "text": "didn't"
+      },
+      {
+        "intent": "deny",
+        "text": "don't"
+      },
+      {
+        "intent": "deny",
+        "text": "doesn't"
+      },
+      {
+        "intent": "deny",
+        "text": "won't"
+      },
+      {
+        "intent": "deny",
+        "text": "no"
+      },
+      {
+        "intent": "deny",
+        "text": "switch"
+      },
+      {
+        "intent": "deny",
+        "text": "change"
+      },
+      {
+        "intent": "deny",
+        "text": "another"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "howdy"
+      },
+      {
+        "intent": "greet",
+        "text": "hey there"
+      },
+      {
+        "intent": "greet",
+        "text": "hello"
+      },
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "greet",
+        "text": "good morning"
+      },
+      {
+        "intent": "greet",
+        "text": "good evening"
+      },
+      {
+        "intent": "greet",
+        "text": "dear sir"
+      },
+      {
+        "intent": "goodbye",
+        "text": "bye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "goodbye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "good bye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "stop"
+      },
+      {
+        "intent": "goodbye",
+        "text": "end"
+      },
+      {
+        "intent": "affirm",
+        "text": "yes"
+      },
+      {
+        "intent": "affirm",
+        "text": "yep"
+      },
+      {
+        "intent": "affirm",
+        "text": "yeah"
+      },
+      {
+        "intent": "affirm",
+        "text": "indeed"
+      },
+      {
+        "intent": "affirm",
+        "text": "that's right"
+      },
+      {
+        "intent": "affirm",
+        "text": "ok"
+      },
+      {
+        "intent": "affirm",
+        "text": "great"
+      },
+      {
+        "intent": "affirm",
+        "text": "right, thank you"
+      },
+      {
+        "intent": "affirm",
+        "text": "correct"
+      },
+      {
+        "intent": "affirm",
+        "text": "great choice"
+      },
+      {
+        "intent": "affirm",
+        "text": "sounds really good"
+      },
+      {
+        "intent": "stock_search",
+        "text": "I want a stock"
+      },
+      {
+        "intent": "stock_search",
+        "text": "I want to buy stock"
+      },
+      {
+        "intent": "stock_search",
+        "text": "I am searching for a stock"
+      },
+      {
+        "intent": "stock_search",
+        "text": "I am searching for some stocks"
+      },
+      {
+        "intent": "stock_search",
+        "entities": [
+          {
+            "start": 28,
+            "end": 33,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "i'm looking for a stock in china"
+      },
+      {
+        "intent": "stock_search",
+        "entities": [
+          {
+            "start": 28,
+            "end": 30,
+            "value": "us",
+            "entity": "location"
+          }
+        ],
+        "text": "i'm looking for a stock in us"
+      },
+      {
+        "intent": "stock_search",
+        "entities": [
+          {
+            "start": 31,
+            "end": 36,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "i'm looking for a place in the china"
+      },
+      {
+        "intent": "stock_search",
+        "text": "show me stocks "
+      },
+      {
+        "intent": "stock_search",
+        "entities": [
+          {
+            "start": 19,
+            "end": 24,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "show me stocks in china"
+      },
+      {
+        "intent": "stock_search",
+        "entities": [
+          {
+            "start": 19,
+            "end": 21,
+            "value": "us",
+            "entity": "location"
+          }
+        ],
+        "text": "show me stocks in us"
+      },
+      {
+        "intent": "stock_search",
+        "entities": [
+          {
+            "start": 30,
+            "end": 35,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "show me a stock placed in the china"
+      },
+      {
+        "intent": "stock_search",
+        "text": "search for stocks"
+      },
+      {
+        "intent": "stock_search",
+        "text": "anything about stocks"
+      },
+      {
+        "intent": "restaurant_search",
+        "entities": [
+          {
+            "start": 14,
+            "end": 19,
+            "value": "18328",
+            "entity": "location"
+          }
+        ],
+        "text": "anywhere near 18328"
+      },
+      {
+        "intent": "restaurant_search",
+        "entities": [
+          {
+            "start": 29,
+            "end": 34,
+            "value": "29432",
+            "entity": "location"
+          }
+        ],
+        "text": "I am looking a restaurant in 29432"
+      },
+      {
+        "intent": "restaurant_search",
+        "entities": [
+          {
+            "start": 17,
+            "end": 38,
+            "value": "mexican indian fusion",
+            "entity": "cuisine"
+          }
+        ],
+        "text": "I am looking for mexican indian fusion"
+      },
+      {
+        "intent": "restaurant_search",
+        "entities": [
+          {
+            "start": 0,
+            "end": 7,
+            "value": "central",
+            "entity": "location"
+          },
+          {
+            "start": 8,
+            "end": 14,
+            "value": "indian",
+            "entity": "cuisine"
+          }
+        ],
+        "text": "central indian restaurant"
+      },
+      {
+        "intent": "goodbye",
+        "text": "bye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "goodbye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "good bye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "stop"
+      },
+      {
+        "intent": "goodbye",
+        "text": "end"
+      },
+      {
+        "intent": "goodbye",
+        "text": "farewell"
+      },
+      {
+        "intent": "goodbye",
+        "text": "Bye bye"
+      },
+      {
+        "intent": "goodbye",
+        "text": "have a good one"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "north",
+            "entity": "location"
+          }
+        ],
+        "text": "in the north of town"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "south",
+            "entity": "location"
+          }
+        ],
+        "text": "in the south of town"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 3,
+            "end": 5,
+            "value": "us",
+            "entity": "location"
+          }
+        ],
+        "text": "in us"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 3,
+            "end": 8,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "in china"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 11,
+            "end": 16,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "located in china"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 11,
+            "end": 13,
+            "value": "us",
+            "entity": "location"
+          }
+        ],
+        "text": "located in us"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 18,
+            "end": 20,
+            "value": "us",
+            "entity": "location"
+          }
+        ],
+        "text": "whose location is us"
+      },
+      {
+        "intent": "location",
+        "entities": [
+          {
+            "start": 18,
+            "end": 23,
+            "value": "china",
+            "entity": "location"
+          }
+        ],
+        "text": "whose location is china"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "AAPL"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "AAPL",
+            "entity": "ORG"
+          }
+        ],
+        "text": "SOHU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "SINA",
+            "entity": "ORG"
+          }
+        ],
+        "text": "SINA"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "BIDU",
+            "entity": "ORG"
+          }
+        ],
+        "text": "BIDU"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "NETS",
+            "entity": "ORG"
+          }
+        ],
+        "text": "NETS"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "SBUX",
+            "entity": "ORG"
+          }
+        ],
+        "text": "SBUX"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 4,
+            "value": "CTRP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "CTRP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "PEP",
+            "entity": "ORG"
+          }
+        ],
+        "text": "PEP"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "BAC",
+            "entity": "ORG"
+          }
+        ],
+        "text": "BAC"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 2,
+            "value": "KO",
+            "entity": "ORG"
+          }
+        ],
+        "text": "KO"
+      },
+      {
+        "intent": "sp_stock",
+        "entities": [
+          {
+            "start": 0,
+            "end": 2,
+            "value": "GE",
+            "entity": "ORG"
+          }
+        ],
+        "text": "GE"
+      }
+    ],
+    "regex_features": [
+      {
+        "name": "greet",
+        "pattern": "hey[^\\s]*"
+      },
+      {
+        "name": "zipcode",
+        "pattern": "[0-9]{5}"
+      }
+    ],
+    "lookup_tables": [],
+    "entity_synonyms": [
+      {
+        "value": "chinese",
+        "synonyms": [
+          "Chinese",
+          "Chines",
+          "chines"
+        ]
+      },
+      {
+        "value": "vegetarian",
+        "synonyms": [
+          "veggie",
+          "vegg"
+        ]
+      },
+      {
+        "value": "hi",
+        "synonyms": [
+          "expensive",
+          "valued"
+        ]
+      },
+      {
+        "value": "lo",
+        "synonyms": [
+          "cheap"
+        ]
+      }
+    ]
+  }
+}

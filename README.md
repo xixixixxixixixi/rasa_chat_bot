@@ -1,7 +1,9 @@
 # rasa_chat_bot
 ## 一个小小的股票查询机器人<br> 
 ## 说明：
-* 主函数为main1.py<br> 
+* main1.py：main1.py<br> 
+* v2t.py：将语音文件转为文本文件<br> 
+* t2s.py：处理excel表格<br> 
 ## 总体思路：<br> 
 ### * 整体上：
   * 程序的整体逻辑上分为登录前和登录后两个部分，用到的主要工具有spacy，rasa_nlu，和telegram。<br> 

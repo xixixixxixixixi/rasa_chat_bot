@@ -277,10 +277,14 @@ def help(update, context):
 
 def vecho(update, context):
     global state, pending, interpreter, reply, sheet_flag
+    #从消息栏中获得语音文件的对象
     x=update.message.voice.get_file()
+    #将消息栏中的语音文件下载至本地
     x.download('result.pcm')
+    #调用v2t.py获得语音文件对应的文本str
     verb=v2t.get_voice_text()
     print(verb)
+    #与文本回复一样，送入send_message()进行处理
     state, pending = send_message(state, pending,verb, interpreter)
     for i in range(len(reply)):
         update.message.reply_text(reply[i])

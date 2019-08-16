@@ -42,6 +42,7 @@ AUTHED=1
 CHECK=2
 HP=3
 OP=4
+PP=5
 
 #设置登录检验位
 checked=0
@@ -59,21 +60,29 @@ pending = None
 
 #发送表格位
 sheet_flag=0
+#发送图片位
+pic_flag=0
+
+
 
 # 查询操作中的状态转换，多轮查询
 policy_rules = {
-    (INIT, "stock_search"): (INIT, "please enter your password?", AUTHED),
-    (INIT, "location"): (INIT, "please enter your password first.", AUTHED),
+    (INIT, "login"): (INIT, "please enter your password?", AUTHED),
     
     (INIT, "number"): (AUTHED, "perfect, welcome back!", None),
     
-    (AUTHED, "stock_search"): (CHECK, "What kind of stock do you want to check?", None),
+    (AUTHED, "login"): (CHECK, "What kind of stock do you want to check?", None),
     (AUTHED, "location"): (CHECK, "What kind of stock do you want to check?", None),
     
-    
+    (CHECK, "logout"): (INIT, "thank you for using, have a nice day!", None),
     (CHECK, "hprice"): (CHECK, "In which kind of format do you prefer the result to be shown? Sheet or text?", HP),
     (CHECK, "form"): (HP, "Order received.I'm working on your request. It might cost a few second.", None),
     (HP, "hprice"): (CHECK, None, None),
+
+    (CHECK, "trend"): (CHECK, "Please choose a specific thing so that I can help you to check it out.", PP),
+    (CHECK, "high"): (PP, "Order received.I'm working on your request. It might cost a few second.", None),
+    (CHECK, "low"): (PP, "Order received.I'm working on your request. It might cost a few second.", None),
+    (PP, "trend"): (CHECK, None, None),
     
     
     (CHECK, "close"): (CHECK, "Please enter the date that you want to check.", OP),
@@ -145,7 +154,7 @@ def replace_pronouns(message):
     message = message.lower()
     if ' me ' in message:
         return re.sub('me', 'you', message)
-    if ' i ' in message:
+    elif ' i ' in message:
         return re.sub('i', 'you', message)
     elif ' my ' in message:
         return re.sub('my', 'your', message)
@@ -156,24 +165,33 @@ def replace_pronouns(message):
 
     return message
 
+
 #查询过程中的带有状态转换和遗留任务的多轮查询
 def policy_response(state, pending, message,interpreter):
     global checked
     global params, suggestions, excluded
     global stockname
     global CHECK
-    new_state, response, pending_state = policy_rules[(state, intent_extract.match_intent(message,interpreter))]
-    if(response is not None):
-        reply_to_user(response)
-    if pending is not None:
-        new_state, response, pending_state = policy_rules[pending]
+    try:
+        new_state, response, pending_state = policy_rules[(state, intent_extract.match_intent(message,interpreter))]
+    except KeyError:
+        if(state==INIT):
+            reply_to_user("Permission denied! please login first.")
+        else:
+            reply_to_user("input error!")
+        return state,pending
+    else:
         if(response is not None):
             reply_to_user(response)
-    if pending_state is not None:
-        pending = (pending_state, intent_extract.match_intent(message,interpreter))
-    if(new_state==CHECK) :
-        checked=1
-    return new_state, pending
+        if pending is not None:
+            new_state, response, pending_state = policy_rules[pending]
+            if(response is not None):
+                reply_to_user(response)
+        if pending_state is not None:
+            pending = (pending_state, intent_extract.match_intent(message,interpreter))
+        if(new_state==CHECK) :
+            checked=1
+        return new_state, pending
 
 #判断有没有选定想操作的股票名字
 def stock_choosed():
@@ -184,14 +202,13 @@ def stock_choosed():
         return 0
     return 1
 
-
 #处理消息得到应答
 def send_message(state, pending, message,interpreter):
     global checked
     global params, suggestions, excluded
     global stockname
     global CHECK,date,item
-    global sheet_flag
+    global sheet_flag,pic_flag
     
     intent=intent_extract.match_intent(message,interpreter)#提取现阶段操作的意图
     
@@ -199,39 +216,56 @@ def send_message(state, pending, message,interpreter):
     if response is not None:
             reply_to_user(response)
             return state, None
-
     #若不是闲聊型，则要先登录
-    if(checked==0):
+    if(checked == 0):
         new_state,pending=policy_response(state, pending, message,interpreter)#登录的状态转换多轮查询
         return new_state,pending
     #完成登录后
     else:
-        if('search' in intent) or('location' in intent)or('affirm' in intent)or('deny' in intent):#如果内容中涉及地理位置或者搜索意图，则推荐一些股票
+        if ("logout" in intent):
+            stockname = ''
+            item = ''
+            date = ''
+            sheet_flag = 0
+            pic_flag = 0
+            checked = 0
+            new_state, pending = policy_response(state, pending, message, interpreter)
+            return new_state, pending
+
+        elif('search' in intent) or('location' in intent)or('affirm' in intent)or('deny' in intent):#如果内容中涉及地理位置或者搜索意图，则推荐一些股票
             response,params, suggestions, excluded=intent_extract.intent_response(message, params, suggestions, excluded,interpreter)
             reply_to_user(response)
             return state, None
-        elif('sp_stock'in intent):#已登录的情况下，可随时更换自己想查询的特定股票
-            stockname=intent_extract.ent_ex(message,interpreter)
-            response="I see, you'd like to check this one. And?"
-            reply_to_user(response)
-            return state,None
-        elif('hprice'in intent)or("form" in intent):#查询特定股票的历史价格记录
-            if(stock_choosed()==0):#判断该查询操作中有没有选定特定的股票
+
+        elif('hprice' in intent)or("form" in intent):
+            if (stock_choosed() == 0):  # 判断该查询操作中有没有选定特定的股票
                 return state, None
             else:
                 new_state,pending=policy_response(state, pending, message,interpreter)#若选择了，则按照规定的多轮查询步骤来进行查询
-                if(intent=="form"):
+                if(intent=='hprice'):
+                    return new_state,pending
+                else:
                     if("text" in message):
                        response=str(api_test.get_historical_prices(stockname))
                        reply_to_user(response)
-                    elif("sheet" in message):
+                    else:
                         t2s.text2sheet(api_test.get_historical_prices(stockname))
                         sheet_flag=1
-                    else:#输入了意料之外的信息会报错
-                        response="input error!"
-                        reply_to_user(response)
-                return new_state,pending
-        elif('open'in intent)or('close'in intent)or('volume'in intent)or("number" in intent):#查询特定股票的开盘价，关盘价，市值等
+                    return new_state,pending
+
+        elif ('trend' in intent)or('high' in intent)or('low' in intent):  # 查询特定股票的历史价格趋势
+            if (stock_choosed() == 0):  # 判断该查询操作中有没有选定特定的股票
+                return state, None
+            else:
+                new_state, pending = policy_response(state, pending, message, interpreter)  # 若选择了，则按照规定的多轮查询步骤来进行查询
+                if('trend' in intent):
+                    return new_state, pending
+                else:
+                    t2s.text2pic(intent,api_test.get_historical_prices(stockname))
+                    pic_flag=1
+                    return new_state, pending
+
+        elif (intent=='open')or(intent=='close')or(intent=='volume')or(intent=='number'):#查询特定股票的开盘价，关盘价，市值等
             if (stock_choosed() == 0):#判断该查询操作中有没有选定特定的股票
                 return state, None
             else:
@@ -250,15 +284,20 @@ def send_message(state, pending, message,interpreter):
                     else:#若表中查询失败，则回复查询不到对应信息
                         response="I can't find what you want"
                         reply_to_user(response)
-                return new_state,pending      
-        elif('logout'in intent):#退出登录
-            response,params,suggestions,excluded=intent_extract.intent_response(message, params, suggestions, excluded,interpreter)
+                        item = ''
+                        date = ''
+                return new_state,pending
+
+        elif ('sp_stock' in intent):  # 已登录的情况下，可随时更换自己想查询的特定股票
+            stockname = intent_extract.ent_ex(message, interpreter)
+            response = "I see, you'd like to check this one. And?"
             reply_to_user(response)
-            stockname=''
-            item=''
-            date=''
-            checked=0
-            return 0,None
+            return state, None
+
+        else:  # 输入了意料之外的信息会报错
+            response = "input error!"
+            reply_to_user(response)
+            return state, None
 """
 以下部分为telegram的对应部分
 由于涉及的变量耦合较多，修改起来比较麻烦，暂时将这两部分封装在一起
@@ -276,15 +315,11 @@ def help(update, context):
     update.message.reply_text('Help!')
 
 def vecho(update, context):
-    global state, pending, interpreter, reply, sheet_flag
-    #从消息栏中获得语音文件的对象
+    global state, pending, interpreter, reply, sheet_flag,pic_flag
     x=update.message.voice.get_file()
-    #将消息栏中的语音文件下载至本地
     x.download('result.pcm')
-    #调用v2t.py获得语音文件对应的文本str
     verb=v2t.get_voice_text()
     print(verb)
-    #与文本回复一样，送入send_message()进行处理
     state, pending = send_message(state, pending,verb, interpreter)
     for i in range(len(reply)):
         update.message.reply_text(reply[i])
@@ -293,12 +328,18 @@ def vecho(update, context):
             inf = InputFile(f, filename="data.xlsx")
             update.message.reply_document(inf)
         sheet_flag = 0
+    if (pic_flag == 1):
+        with open("res.jpg", 'rb') as f:
+            inf = InputFile(f, filename="res.jpg")
+            update.message.reply_document(inf)
+        pic_flag = 0
     reply = []
 
 #处理用户发送的信息并给予回复
 def echo(update, context):
-    global state,pending,interpreter,reply,sheet_flag
+    global state,pending,interpreter,reply,sheet_flag,pic_flag,checked
     state, pending = send_message(state, pending, update.message.text, interpreter)
+    print(checked)
     for i in range(len(reply)):
         update.message.reply_text(reply[i])
     if(sheet_flag==1):
@@ -306,6 +347,11 @@ def echo(update, context):
             inf = InputFile(f, filename="data.xlsx")
             update.message.reply_document(inf)
         sheet_flag=0
+    if (pic_flag == 1):
+        with open("res.jpg", 'rb') as f:
+            inf = InputFile(f, filename="res.jpg")
+            update.message.reply_document(inf)
+        pic_flag = 0
     reply=[]
 
 def error(update, context):
@@ -342,26 +388,33 @@ if __name__ == '__main__':
 
 """
 测试样例：
-    " hey ",
-    "my name is Liyanhao",
-    "do you remember when I last came here",
-    "what can you do"
-    "show me some stocks in us",
-    "1234",
-    "some stock in us",
-    "no it doesn't work for me",
-    "do you think humans should be worried about AI",
-    "do you remember your last birthday",
-    "age",
-    "some stock in china",
-    "some stock in us",
-    "open price",
-    "SINA",
-    "open price",
-    "2019-07-15",
-    "I want to check the history price",
-    "text",
-    "about volume",
-    "2019-08-07",
-    "logout"
+    hey 
+    my name is Liyanhao
+    do you remember when I last came here? 
+    so show me the high price of SINA
+    low price
+    some stocks in us
+    what can you do
+    login
+    1234
+    some stock in us
+    no it doesn't work for me
+    do you think humans should be worried about AI
+    some stock in china
+    how old are you
+    open price
+    SINA
+    show me the open price of it
+    1900-07-15
+    close price, please
+    2019-07-19
+    PEP
+    I want to check the history price
+    sheet
+    about volume
+    2019-07-29
+    show me the trend
+    high price
+    logout
+    bye
 """

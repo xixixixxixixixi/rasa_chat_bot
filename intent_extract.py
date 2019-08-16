@@ -22,11 +22,18 @@ keywords = {
             'number':['0','1','2','3','4','5','6','7','8','9'],
             'hprice':['history price'],
             'form':['sheet','text'],
-            'logout':['logout'],    
+            'logout':['logout'],
+            'login':['login'],
+
+            'high': ['high'],
+            'low': ['low'],
+
             'volume':['volume'],
             'open':['open price'],
             'close':['close price'],
-            'changepercent':['changepercent']
+
+            'changepercent':['changepercent'],
+            'trend':['trend']
             
            }
 
@@ -43,7 +50,6 @@ responses = {'greet': 'Hello you! :)',
              'default': 'default message', 
              'goodbye': 'have a nice day!',
              'year': 'I was born on 08/10/2019 :)',
-             'logout':'thank you, have a nice day!',
              'func': 'I can help you to check stocks'
             }
 

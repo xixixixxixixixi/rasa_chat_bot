@@ -1,5 +1,6 @@
 # rasa_chat_bot
 ## 一个小小的股票查询机器人<br> 
+![image](https://github.com/xixixixxixixixi/rasa_chat_bot/blob/master/gif/%E6%B5%8B%E8%AF%95%E8%A7%86%E9%A2%91.MP4.gif)
 ## 说明：
 * main1.py：主函数<br> 
 * v2t.py：将语音文件转为文本文件<br> 

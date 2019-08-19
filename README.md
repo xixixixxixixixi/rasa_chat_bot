@@ -25,6 +25,3 @@
   * 本项目使用telegram的方法来实现机器人与用户间的交互。
   * 国内用户使用时需要科学上网。
   * 备注：使用ss的方式仍然会导致错误，因为即便搭建了ss，开启了全局模式，在使用股票数据接口时仍然会请求失败，这是因为在全局ss模式下，虽然浏览器的访问方式改为了你设置的ss代理服务器，但是python等软件的访问方式仍然默认为你的原有网络，而在telegram的函数中，相关代理设置不容易修改，因此国内用户请找到一个适合自己的科学上网工具。<br>
-  <video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
-  <source id="mp4" src="https://v.youku.com/v_show/id_XNDMxNzU5MzQ2NA==.html?spm=a2h3j.8428770.3416059.1">
-</video>
